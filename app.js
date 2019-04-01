@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // const apple = null
   let scoreCount = 0
   const score = document.querySelector('.score')
+  const movingSnake = setInterval(moveSnake, 100)
 
   //************************************** = for let statement pushing my square into my grid
   for(let i = 0; i < width * width; i++) {
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chosenSquare.classList.add('food')
     console.log(chosenSquare)
   }
+
 
 
   //and one to score, i want it to add one to my snake but not pop one off.
@@ -60,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (snake[0] % width === 0 && direction === 'left' ||
     snake[0] % width === width -1  && direction === 'right' ||
     snake[0] - width < 0  && direction === 'up' ||
-    snake[0] > width * width  && direction === 'down') {
-      return false
+    snake[0] >= width * (width - 1) && direction === 'down') {
+      return gameOver()
     }
 
 
@@ -81,26 +83,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   eraseSnake()
-  //switch statement.
+
+  function gameOver() {
+    grid.classList.remove('grid')
+    clearInterval(snakeMoving)
+  }
 
 
-  // this sets the interval of the move to a second.
 
-
-  setInterval(moveSnake, 100)
-  //************************************************************* = for loop to stop snake going into itself.
-
-
-  // var checkCollision = function() {
-  //   for(var i = 0; i < squares.length; i++) {
-  //     if(snake[i] === snake[i])
-  //       return true
-  //
-  //     else return false
-  //   }
-  //
-  // }
-  // checkCollision()
 
   // ********************** = function in order to make it move a certain way and what it should add or take off
   function moveRight(){
@@ -128,20 +118,28 @@ document.addEventListener('DOMContentLoaded', () => {
     drawSnake()
   }
 
+  //************************************************************* = kill the snake. reset the snake when it hits itself or the wall.
+
+
+
+
+
+
+
   //********************************************* = listening to downward input key in order to change the direction.
   document.addEventListener('keydown', (e) => {
     switch(e.keyCode) {
 
-      case 37: direction = 'left'
+      case 37: if (direction !== 'right') direction = 'left'
         break
 
-      case 38: direction = 'up'
+      case 38: if (direction !== 'down') direction = 'up'
         break
 
-      case 39: direction = 'right'
+      case 39: if (direction !== 'left') direction = 'right'
         break
 
-      case 40: direction = 'down'
+      case 40: if (direction !== 'up') direction = 'down'
         break
     }
   })

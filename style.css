@@ -2,13 +2,18 @@
   box-sizing: border-box;
 }
 
+header {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 body {
   align-items: center;
   display: flex;
-  height: 100vh;
   justify-content: center;
   margin: 0;
+  height: 200px;
+  flex-wrap: wrap;
 }
 
 .grid {
@@ -34,5 +39,9 @@ body {
 }
 
 .food {
-  background: red;
+  background-image: url('pictures/apple.png');
+  background-size: contain;
+  background-position: center;
+  align-items: center;
+  background-repeat: no-repeat;
 }
