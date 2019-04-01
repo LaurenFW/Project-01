@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const snake = [3,2,1,0]
   let direction = 'right'
   const apple = null
-  const scoreCount = 0
+  let scoreCount = 0
   const score = document.querySelector('.score')
 
   //************************************** = for let statement pushing my square into my grid
@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(chosenSquare)
   }
 
-  food()
 
   //and one to score, i want it to add one to my snake but not pop one off.
   //otherwise do nothing???
@@ -35,10 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //************************************************************* = My Functions!!
   function drawSnake() {
+    console.log('drawing')
     snake.forEach(index => squares[index].classList.add('snake')) // adding a square to the snake
   }
 
   function eraseSnake() {
+    console.log('erasing')
     snake.forEach(index =>
       squares[index].classList.remove('snake')) // deleting a square from the snake
   }
@@ -48,31 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
   function moveSnake() { //function - moving the snake, making sure it doesn't go past the walls of the game.
     // if statment, if snake contains apple then don't pop off and put one on a score and generate another apple
 
-    // if (squares[snake[0]].classlist.contains('apple')) {
-    //   scoreCount++
-    //   score.innerText = scoreCount
-    //   squares[snake[0]].classlist.remove('apple')
-    //   snake.unshift(snake[0])
-    //   apple()
     //
+    // if (snake[0] % width === 0 && direction === 'left' ||
+    // snake[0] % width === width -1  && direction === 'right' ||
+    // snake[0] - width < 0  && direction === 'up' ||
+    // snake[0] > width * width  && direction === 'down') ||
+    // snake.slice(1).includes(snake[0])){
 
-
-
-    if (snake[0] % width === 0 && direction === 'left' ||
-  snake[0] % width === width -1  && direction === 'right' ||
-  snake[0] - width < 0  && direction === 'up' ||
-  snake[0] >= width * (width - 1 )  && direction === 'down') {
-      if(snake.slice(1).includes(snake[0])){
-
-        eraseSnake()
-        gameOver()
-
-      }
-    }
     eraseSnake()
-    //switch statement.
-    switch(direction){
-
+    // gameOver()switch(direction){
+    switch(direction) {
       case 'right' : moveRight()
         break
       case 'left' : moveLeft()
@@ -81,10 +67,27 @@ document.addEventListener('DOMContentLoaded', () => {
         break
       case 'down' : moveDown()
 
-        drawSnake()
     }
-  // this sets the interval of the move to a second.
+    drawSnake()
   }
+
+  eraseSnake()
+  //switch statement.
+
+  if (squares[snake[0]].classList.contains('apple')) {
+    scoreCount++
+    score.innerText = scoreCount
+    squares[snake[0]].classList.remove('apple')
+    snake.unshift(snake[0])
+    apple()
+  }
+
+
+
+
+  // this sets the interval of the move to a second.
+
+
   setInterval(moveSnake, 100)
   //************************************************************* = for loop to stop snake going into itself.
 
@@ -143,4 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
         break
     }
   })
+
+  food()
 })
