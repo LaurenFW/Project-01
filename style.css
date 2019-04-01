@@ -2,9 +2,12 @@
   box-sizing: border-box;
 }
 
-header {
-  display: flex;
-  flex-wrap: wrap;
+h1 {
+  font-family: 'Cookie', cursive;
+  color: white;
+  background-color: black;
+  font-size: 50px;
+  text-align: center;
 }
 
 body {
@@ -12,19 +15,32 @@ body {
   display: flex;
   justify-content: center;
   margin: 0;
-  height: 200px;
+  height: 700px;
   flex-wrap: wrap;
+  background-image: url(https://media.giphy.com/media/v8jrhqtseGJRC/giphy.gif);\
+  background-size: 700px;
+  /* background-size: contain; */
+  background-repeat: repeat;
+}
+
+.container {
+  background-color: black;
 }
 
 .grid {
+  background-image: url(https://media.giphy.com/media/NcAIyreaZovjq/giphy.gif);\
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  background-repeat: no-repeat;
   align-items: center;
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
   height: 100%;
   justify-content: center;
-  max-height: 600px;
-  max-width: 600px;
+  max-height: 1300px;
+  max-width: 800px;
 }
 
 .grid div {
@@ -39,8 +55,8 @@ body {
 }
 
 .food {
-  background-image: url('pictures/apple.png');
-  background-size: contain;
+  background-image: url(https://media.giphy.com/media/go5Iy1VIpVwqI/giphy.gif);\
+  background-size: auto;
   background-position: center;
   align-items: center;
   background-repeat: no-repeat;

@@ -35,6 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // }
 
   //************************************************************* = My Functions!!
+
+  //************************************************************* = kill the snake. reset the snake when it hits itself or the wall.
+
+
+
+
   function drawSnake() {
     console.log('drawing')
     snake.forEach(index => squares[index].classList.add('snake')) // adding a square to the snake
@@ -75,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (squares[snake[0]].classList.contains('food')){
       scoreCount++
-      snakeSpeed -= 10
+      snakeSpeed -= 5
       score.innerText = scoreCount
       squares[snake[0]].classList.remove('food')
       snake.unshift(snake[0])
@@ -85,14 +91,21 @@ document.addEventListener('DOMContentLoaded', () => {
     drawSnake()
     setTimeout(moveSnake, snakeSpeed)
     // setTimeout better than interval here because it looks to run again in the set amount of time whereas setInterval says do this once and be set in stone
-  }
 
-  moveSnake()
 
-  function gameOver() {
-    grid.classList.remove('grid')
-    
-    clearInterval(moveSnake)
+
+
+    function dieSnake() {
+      if(snake.slice(1).includes(snake[0])){
+        return gameOver()
+      }
+
+
+      function gameOver() {
+        grid.classList.remove('grid')
+        clearInterval(moveSnake)
+      }
+    }
   }
 
 
@@ -122,13 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
     drawSnake()
   }
 
-  //************************************************************* = kill the snake. reset the snake when it hits itself or the wall.
-
-
-
-
-
-
 
   //********************************************* = listening to downward input key in order to change the direction.
   document.addEventListener('keydown', (e) => {
@@ -147,6 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
         break
     }
   })
-
   food()
+  moveSnake()
+  dieSnake()
+  gameOver()
 })
