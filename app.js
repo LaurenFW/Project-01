@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const snake = [3,2,1,0]
   let direction = 'right'
   const apple = null
-
+  const scoreCount = 0
+  const score = document.querySelector('.score')
 
   //************************************** = for let statement pushing my square into my grid
   for(let i = 0; i < width * width; i++) {
@@ -18,13 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  //************************************************************* = if statement about snake eating an apple.
-  // if (statement) {
-  // if (squares[snake[0]].classlist.contains('apple')) then dont pop off the end just add one on to the front.
-  // generate another random number for the apple
+  //************************************************************* = random number created to make my apple.
+  function food(){
+    const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
+    chosenSquare.classList.add('food')
+    console.log(chosenSquare)
+  }
 
+  food()
 
-
+  //and one to score, i want it to add one to my snake but not pop one off.
+  //otherwise do nothing???
+  //then generate a new random number for the apple.
+  // }
 
   //************************************************************* = My Functions!!
   function drawSnake() {
@@ -36,15 +43,32 @@ document.addEventListener('DOMContentLoaded', () => {
       squares[index].classList.remove('snake')) // deleting a square from the snake
   }
 
-  function moveSnake() { //function - moving the snake.
+
+  //************************************************************* = function for my snake eating my apple.
+  function moveSnake() { //function - moving the snake, making sure it doesn't go past the walls of the game.
+    // if statment, if snake contains apple then don't pop off and put one on a score and generate another apple
+
+    // if (squares[snake[0]].classlist.contains('apple')) {
+    //   scoreCount++
+    //   score.innerText = scoreCount
+    //   squares[snake[0]].classlist.remove('apple')
+    //   snake.unshift(snake[0])
+    //   apple()
+    //
+
+
 
     if (snake[0] % width === 0 && direction === 'left' ||
-       snake[0] % width === width -1  && direction === 'right' ||
-       snake[0] - width < 0  && direction === 'up' ||
-       snake[0] >= width * (width - 1 )  && direction === 'down') {
-      return false
-    }
+  snake[0] % width === width -1  && direction === 'right' ||
+  snake[0] - width < 0  && direction === 'up' ||
+  snake[0] >= width * (width - 1 )  && direction === 'down') {
+      if(snake.slice(1).includes(snake[0])){
 
+        eraseSnake()
+        gameOver()
+
+      }
+    }
     eraseSnake()
     //switch statement.
     switch(direction){
@@ -56,13 +80,27 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'up' : moveUp()
         break
       case 'down' : moveDown()
+
+        drawSnake()
     }
-    drawSnake()
+  // this sets the interval of the move to a second.
   }
-  setInterval(moveSnake, 100) // this sets the interval of the move to a second.
+  setInterval(moveSnake, 100)
+  //************************************************************* = for loop to stop snake going into itself.
 
 
-  //********************** = function in order to make it move a certain way and what it should add or take off
+  // var checkCollision = function() {
+  //   for(var i = 0; i < squares.length; i++) {
+  //     if(snake[i] === snake[i])
+  //       return true
+  //
+  //     else return false
+  //   }
+  //
+  // }
+  // checkCollision()
+
+  // ********************** = function in order to make it move a certain way and what it should add or take off
   function moveRight(){
     eraseSnake()
     snake.pop()
@@ -88,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     drawSnake()
   }
 
-  //************************************************************* = listening to downward input key in order to change the direction.
+  //********************************************* = listening to downward input key in order to change the direction.
   document.addEventListener('keydown', (e) => {
     switch(e.keyCode) {
 
