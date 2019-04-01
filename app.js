@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let direction = 'right'
   // const apple = null
   let scoreCount = 0
+  let snakeSpeed = 150
   const score = document.querySelector('.score')
-  const movingSnake = setInterval(moveSnake, 100)
 
   //************************************** = for let statement pushing my square into my grid
   for(let i = 0; i < width * width; i++) {
@@ -51,13 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function moveSnake() { //function - moving the snake, making sure it doesn't go past the walls of the game.
     // if statment, if snake contains apple then don't pop off and put one on a score and generate another apple
 
-    if (squares[snake[0]].classList.contains('food')) {
-      scoreCount++
-      score.innerText = scoreCount
-      squares[snake[0]].classList.remove('food')
-      snake.unshift(snake[0])
-      food()
-    }
 
     if (snake[0] % width === 0 && direction === 'left' ||
     snake[0] % width === width -1  && direction === 'right' ||
@@ -79,17 +72,28 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'down' : moveDown()
 
     }
+
+    if (squares[snake[0]].classList.contains('food')){
+      scoreCount++
+      snakeSpeed -= 10
+      score.innerText = scoreCount
+      squares[snake[0]].classList.remove('food')
+      snake.unshift(snake[0])
+      food()
+    }
+
     drawSnake()
+    setTimeout(moveSnake, snakeSpeed)
+    // setTimeout better than interval here because it looks to run again in the set amount of time whereas setInterval says do this once and be set in stone
   }
 
-  eraseSnake()
+  moveSnake()
 
   function gameOver() {
     grid.classList.remove('grid')
-    clearInterval(snakeMoving)
+    
+    clearInterval(moveSnake)
   }
-
-
 
 
   // ********************** = function in order to make it move a certain way and what it should add or take off
