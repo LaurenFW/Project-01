@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const squares = []
   const snake = [3,2,1,0]
   let direction = 'right'
-  const apple = null
+  // const apple = null
   let scoreCount = 0
   const score = document.querySelector('.score')
 
@@ -49,12 +49,21 @@ document.addEventListener('DOMContentLoaded', () => {
   function moveSnake() { //function - moving the snake, making sure it doesn't go past the walls of the game.
     // if statment, if snake contains apple then don't pop off and put one on a score and generate another apple
 
-    //
-    // if (snake[0] % width === 0 && direction === 'left' ||
-    // snake[0] % width === width -1  && direction === 'right' ||
-    // snake[0] - width < 0  && direction === 'up' ||
-    // snake[0] > width * width  && direction === 'down') ||
-    // snake.slice(1).includes(snake[0])){
+    if (squares[snake[0]].classList.contains('food')) {
+      scoreCount++
+      score.innerText = scoreCount
+      squares[snake[0]].classList.remove('food')
+      snake.unshift(snake[0])
+      food()
+    }
+
+    if (snake[0] % width === 0 && direction === 'left' ||
+    snake[0] % width === width -1  && direction === 'right' ||
+    snake[0] - width < 0  && direction === 'up' ||
+    snake[0] > width * width  && direction === 'down') {
+      return false
+    }
+
 
     eraseSnake()
     // gameOver()switch(direction){
@@ -73,16 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   eraseSnake()
   //switch statement.
-
-  if (squares[snake[0]].classList.contains('apple')) {
-    scoreCount++
-    score.innerText = scoreCount
-    squares[snake[0]].classList.remove('apple')
-    snake.unshift(snake[0])
-    apple()
-  }
-
-
 
 
   // this sets the interval of the move to a second.
