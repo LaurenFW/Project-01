@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // VARIABLES
   //************************************************************* = my variables
+  const body = document.querySelector('body')
+  const endOfGame = document.querySelector('endOfGame')
   const grid = document.querySelector('.grid')
   const score = document.querySelector('.score')
   const resetButton = document.querySelector('.button')
@@ -58,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function gameOver() {
     gameInPlay = false
     grid.classList.remove('grid')
+    body.classList.add('endOfGame')
+    moveSnake()
+    eraseSnake()
 
   }
 
@@ -168,6 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
     score.innerText = 0
     grid.classList.add('grid')
     direction = 'right'
+    snakeSpeed -= 0
+    body.classList.remove('endOfGame')
     drawSnake()
     moveSnake()
 
