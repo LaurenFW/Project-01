@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let direction = 'right'
   // const apple = null
   let scoreCount = 0
-  let snakeSpeed = 150
+  let snakeSpeed = 300
   const score = document.querySelector('.score')
 
   //************************************** = for let statement pushing my square into my grid
@@ -20,30 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  //************************************************************* = My Functions!
+
   //************************************************************* = random number created to make my apple.
-  function food(){
-    const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
-    chosenSquare.classList.add('food')
-    console.log(chosenSquare)
-  }
-
-
-
-  //and one to score, i want it to add one to my snake but not pop one off.
-  //otherwise do nothing???
-  //then generate a new random number for the apple.
-  // }
-
-  //************************************************************* = My Functions!!
-
-  //************************************************************* = kill the snake. reset the snake when it hits itself or the wall.
-
-
-
-
   function drawSnake() {
     console.log('drawing')
     snake.forEach(index => squares[index].classList.add('snake')) // adding a square to the snake
+  }
+
+  function dieSnake() {
+    if(snake.slice(1).includes(snake[0])){
+      return gameOver()
+    }
   }
 
   function eraseSnake() {
@@ -52,6 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
       squares[index].classList.remove('snake')) // deleting a square from the snake
   }
 
+  function food(){
+    const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
+    chosenSquare.classList.add('food')
+    console.log(chosenSquare)
+  }
+
+  function gameOver() {
+    grid.classList.remove('grid')
+    clearInterval(moveSnake)
+  }
 
   //************************************************************* = function for my snake eating my apple.
   function moveSnake() { //function - moving the snake, making sure it doesn't go past the walls of the game.
@@ -64,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     snake[0] >= width * (width - 1) && direction === 'down') {
       return gameOver()
     }
+
 
 
     eraseSnake()
@@ -79,9 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+
+    dieSnake()
+
     if (squares[snake[0]].classList.contains('food')){
       scoreCount++
-      snakeSpeed -= 5
+      snakeSpeed -= 10
       score.innerText = scoreCount
       squares[snake[0]].classList.remove('food')
       snake.unshift(snake[0])
@@ -89,25 +91,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     drawSnake()
+
     setTimeout(moveSnake, snakeSpeed)
-    // setTimeout better than interval here because it looks to run again in the set amount of time whereas setInterval says do this once and be set in stone
-
-
-
-
-    function dieSnake() {
-      if(snake.slice(1).includes(snake[0])){
-        return gameOver()
-      }
-
-
-      function gameOver() {
-        grid.classList.remove('grid')
-        clearInterval(moveSnake)
-      }
-    }
   }
+  // setTimeout better than interval here because it looks to run again in the set amount of time whereas setInterval says do this once and be set in stone
 
+
+  //************************************************************* = kill the snake. reset the snake when it hits itself or the wall.
+
+  moveSnake()
 
   // ********************** = function in order to make it move a certain way and what it should add or take off
   function moveRight(){
@@ -135,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     drawSnake()
   }
 
-
+  moveSnake()
   //********************************************* = listening to downward input key in order to change the direction.
   document.addEventListener('keydown', (e) => {
     switch(e.keyCode) {
@@ -154,7 +146,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
   food()
-  moveSnake()
-  dieSnake()
-  gameOver()
+
 })
