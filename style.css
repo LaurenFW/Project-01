@@ -24,7 +24,11 @@ body {
 }
 
 .container {
-  background-color: black;
+  background-color: dodgerblue;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
 }
 
 .grid {
@@ -51,7 +55,7 @@ body {
 }
 
 .snake {
-  background-color: dodgerblue;
+  background-color: red;
 }
 
 .food {
@@ -62,10 +66,6 @@ body {
   background-repeat: no-repeat;
 }
 
-.score {
-  color: red;
-}
-
 .button {
   color: red;
 }
@@ -74,5 +74,8 @@ body {
   background-image: url(pictures/d.jpg);
   height: auto;
   width: auto;
+}
 
+.score {
+  color: red;
 }
