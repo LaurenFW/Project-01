@@ -175,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     snakeSpeed -= 0
     drawSnake()
     moveSnake()
+    body.classList.remove('endOfGame')
 
   })
 
