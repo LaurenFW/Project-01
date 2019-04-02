@@ -17,9 +17,10 @@ body {
   margin: 0;
   height: 700px;
   flex-wrap: wrap;
-  background-image: url(https://media.giphy.com/media/v8jrhqtseGJRC/giphy.gif);\
-  background-size: 700px;
-  background-repeat: repeat;
+  background-image: url(https://wallpapercave.com/wp/zae2zaR.jpg);
+  background-size: 1350px;
+  background-repeat: no-repeat;
+
 }
 
 .container {

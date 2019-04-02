@@ -6,8 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const score = document.querySelector('.score')
   const resetButton = document.querySelector('.button')
   const width = 18
-  const snake = [3,2,1,0]
   const squares = []
+
+  let snake = [3,2,1,0]
   let square = []
   let chosenSquare = []
   let scoreCount = 0
@@ -15,16 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
   let direction = 'right'
   let gameInPlay = true
 
-
   //*************************************************************
 
 
 
   //************************************** = for let statement pushing my square into my grid
   for(let i = 0; i < width * width; i++) {
-    square = document.createElement('DIV')
-    squares.push(square)
-    grid.appendChild(square)
+    if (gameInPlay === true) {
+      square = document.createElement('DIV')
+      squares.push(square)
+      grid.appendChild(square)
+    }
   }
 
 
@@ -54,9 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function gameOver() {
+    gameInPlay = false
     grid.classList.remove('grid')
-    clearInterval(moveSnake)
+
   }
+
 
   //************************************************************* = function for my snake eating my apple.
   function moveSnake() { //function - moving the snake, making sure it doesn't go past the walls of the game.
@@ -69,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     snake[0] >= width * (width - 1) && direction === 'down') {
       return gameOver()
     }
+
 
 
 
@@ -97,10 +102,11 @@ document.addEventListener('DOMContentLoaded', () => {
       food()
     }
 
-    drawSnake()
+
 
     setTimeout(moveSnake, snakeSpeed)
   }
+
   // setTimeout better than interval here because it looks to run again in the set amount of time whereas setInterval says do this once and be set in stone
 
 
@@ -154,11 +160,19 @@ document.addEventListener('DOMContentLoaded', () => {
         break
     }
   })
-  food()
+
 
   resetButton.addEventListener('click', () => {
-    scoreCount.innerText = 0
-    gameInPlay = true
-  } )
+    snake.forEach(index => squares[index].classList.remove('snake'))
+    snake = [3,2,1,0]
+    score.innerText = 0
+    grid.classList.add('grid')
+    direction = 'right'
+    drawSnake()
+    moveSnake()
+
+  })
+
+  food()
 
 })
