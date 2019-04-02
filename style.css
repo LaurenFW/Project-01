@@ -3,7 +3,7 @@
 }
 
 h1 {
-  font-family: 'Cookie', cursive;
+  font-family: 'Marck Script', cursive;
   color: white;
   background-color: black;
   font-size: 50px;
@@ -19,7 +19,6 @@ body {
   flex-wrap: wrap;
   background-image: url(https://media.giphy.com/media/v8jrhqtseGJRC/giphy.gif);\
   background-size: 700px;
-  /* background-size: contain; */
   background-repeat: repeat;
 }
 
@@ -60,4 +59,12 @@ body {
   background-position: center;
   align-items: center;
   background-repeat: no-repeat;
+}
+
+.score {
+  color: red;
+}
+
+.button {
+  color: red;
 }

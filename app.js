@@ -1,27 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-
+  // VARIABLES
   //************************************************************* = my variables
   const grid = document.querySelector('.grid')
+  const score = document.querySelector('.score')
+  const resetButton = document.querySelector('.button')
   const width = 18
-  const squares = []
   const snake = [3,2,1,0]
-  let direction = 'right'
-  // const apple = null
+  const squares = []
+  let square = []
+  let chosenSquare = []
   let scoreCount = 0
   let snakeSpeed = 300
-  const score = document.querySelector('.score')
+  let direction = 'right'
+  let gameInPlay = true
+
+
+  //*************************************************************
+
+
 
   //************************************** = for let statement pushing my square into my grid
   for(let i = 0; i < width * width; i++) {
-    const square = document.createElement('DIV')
+    square = document.createElement('DIV')
     squares.push(square)
     grid.appendChild(square)
   }
 
 
-  //************************************************************* = My Functions!
-
+  // FUNCTIONS
   //************************************************************* = random number created to make my apple.
   function drawSnake() {
     console.log('drawing')
@@ -41,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function food(){
-    const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
+    chosenSquare = squares[Math.floor(Math.random() * squares.length)]
     chosenSquare.classList.add('food')
     console.log(chosenSquare)
   }
@@ -128,6 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   moveSnake()
+
+  // EVENTLISTENERS
   //********************************************* = listening to downward input key in order to change the direction.
   document.addEventListener('keydown', (e) => {
     switch(e.keyCode) {
@@ -146,5 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
   food()
+
+  resetButton.addEventListener('click', () => {
+    scoreCount.innerText = 0
+    gameInPlay = true
+  } )
 
 })
