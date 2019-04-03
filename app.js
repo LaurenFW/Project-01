@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let snakeSpeed = 300
   let direction = 'right'
   let gameInPlay = true
+  let timer
 
   //*************************************************************
 
@@ -108,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    setTimeout(moveSnake, snakeSpeed)
+    timer = setTimeout(moveSnake, snakeSpeed)
   }
 
   // setTimeout better than interval here because it looks to run again in the set amount of time whereas setInterval says do this once and be set in stone
@@ -173,9 +174,11 @@ document.addEventListener('DOMContentLoaded', () => {
     grid.classList.add('grid')
     direction = 'right'
     snakeSpeed -= 0
+    clearTimeOut(timer)
     drawSnake()
     moveSnake()
     body.classList.remove('endOfGame')
+
 
   })
 

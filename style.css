@@ -59,8 +59,9 @@ body {
 }
 
 .food {
-  background-image: url(https://media.giphy.com/media/go5Iy1VIpVwqI/giphy.gif);\
-  background-size: auto;
+  /* need to fix my snitch size!!! */
+  background-image: url(pictures/golden-snitch.jpg);\
+  background-size: contain;
   background-position: center;
   align-items: center;
   background-repeat: no-repeat;
