@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let snake = [3,2,1,0]
   let square = []
-  let chosenSquare = []
   let scoreCount = 0
   let snakeSpeed = 350
   let direction = 'right'
@@ -55,15 +54,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function food(){
-    chosenSquare = squares[Math.floor(Math.random() * squares.length)]
+    const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
+    let randomIndex = Math.floor(Math.random() * squares.length)
+    while (squares[randomIndex].classList.contains('food')) {
+      randomIndex = Math.floor(Math.random() * squares.length)
+      squares[randomIndex].classList.add('food')
+    }
+
     chosenSquare.classList.add('food')
-    console.log(chosenSquare)
+    if(chosenSquare.classList.contains('snake')){
+      food()
+    }
+
+    console.log(randomIndex)
+
   }
 
+
+
+
   function gameOver() {
-    // gameInPlay = false
-    // grid.classList.remove('grid')
-    // main.classList.add('endOfGame')
+    gameInPlay = false
+    grid.classList.remove('grid')
+    main.classList.add('endOfGame')
     moveSnake()
     eraseSnake()
 
@@ -153,8 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // EVENTLISTENERS
   //********************************************* = listening to downward input key in order to change the direction.
   document.addEventListener('keydown', (e) => {
+    console.log(e.keyCode)
+    e.preventDefault()
     switch(e.keyCode) {
-
       case 37: if (direction !== 'right') direction = 'left'
         break
 
@@ -185,7 +199,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   })
-
   food()
-
 })
