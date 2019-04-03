@@ -1,39 +1,58 @@
-  * {
+* {
   box-sizing: border-box;
 }
 
+header {
+  background-image: url(pictures/giphy.gif);
+  background-position: center;
+  align-items: center;
+  background-repeat: repeat;
+  margin: 0;
+  height: 80px;
+}
+
 h1 {
-  font-family: 'Marck Script', cursive;
   color: white;
-  background-color: black;
+  font-family: 'Montez', cursive;
   font-size: 60px;
+
   text-align: center;
 }
 
-body {
+
+
+main {
   align-items: center;
   display: flex;
-  justify-content: center;
   margin: 0;
-  height: 600px;
-  flex-wrap: wrap;
+  height: 100vh;
   background-image: url(pictures/harry1.jpg);
-  background-size: 1400px;
+  background-size: 100%;
   background-repeat: no-repeat;
   overflow: hidden;
   width: 100%;
 }
 
-.container {
+.container1 {
+  /* background-color: dodgerblue; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-grow: 1;
+
+
+}
+
+.container2 {
   background-color: dodgerblue;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
 
 }
 
 .grid {
-  /* background-image: url(https://media.giphy.com/media/NcAIyreaZovjq/giphy.gif);\
+  /* background-image: url(https://media.giphy.com/media/NcAIyreaZovjq/giphy.gif);
   background-size: cover;
   background-position: center;
   align-items: center;
@@ -61,7 +80,7 @@ body {
 
 .food {
   /* need to fix my snitch size!!! */
-  background-image: url(pictures/golden-snitch.jpg);\
+  background-image: url(pictures/golden-snitch.jpg);
   background-size: contain;
   background-position: center;
   align-items: center;
@@ -74,8 +93,7 @@ body {
 
 .endOfGame{
   background-image: url(pictures/Untitled_Artwork.jpg);
-  height: auto;
-  width: auto;
+  height: 100%;
 }
 
 .score {
