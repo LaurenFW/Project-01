@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // VARIABLES
   //************************************************************* = my variables
-  const body = document.querySelector('body')
+  // const body = document.querySelector('body')
   const main = document.querySelector('main')
   const grid = document.querySelector('.grid')
   const score = document.querySelector('.score')
-  const resetButton = document.querySelector('.button')
+  const resetButton = document.querySelector('.resetButton')
   const width = 18
   const squares = []
 
@@ -55,19 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function food(){
     const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
-    let randomIndex = Math.floor(Math.random() * squares.length)
-    while (squares[randomIndex].classList.contains('food')) {
-      randomIndex = Math.floor(Math.random() * squares.length)
-      squares[randomIndex].classList.add('food')
+    let randomIndex = Math.floor(Math.random()*squares.length)
+    while(squares[randomIndex].classList.contains('snake')) {
+      randomIndex = Math.floor(Math.random()* squares.length)
     }
-
     chosenSquare.classList.add('food')
     if(chosenSquare.classList.contains('snake')){
-      food()
+      // food()
     }
-
-    console.log(randomIndex)
-
   }
 
 
@@ -192,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     grid.classList.add('grid')
     direction = 'right'
     snakeSpeed -= 0
-    body.classList.remove('endOfGame')
+    main.classList.remove('endOfGame')
     drawSnake()
     moveSnake()
 

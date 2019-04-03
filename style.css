@@ -25,7 +25,6 @@ body {
     margin: 0;
 }
 
-
 main {
   display: flex;
   margin: 0;
@@ -85,10 +84,6 @@ main {
   background-repeat: no-repeat;
 }
 
-.button {
-  color: red;
-}
-
 .endOfGame{
   background-image: url('pictures/Untitled_Artwork.jpg');
   border: 5px solid black;
@@ -102,4 +97,37 @@ main {
 
 .score {
   color: red;
+  display: inline;
+  padding-right: 40px;
+}
+
+nav {
+    text-align: center;
+  }
+
+.container2 > div {
+
+  display: none;
+  background-color: white;
+  font-size: 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+nav .resetButton {
+  font-size: 20px;
+  color: red;
+  text-transform: uppercase;
+}
+
+.container2 > .startGame {
+    font-size: 20px;
+    color: dodgerblue;
+}
+
+.container2 > .howToPlay {
+  font-size: 20px;
+  color: dodgerblue;
 }
