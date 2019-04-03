@@ -9,14 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 18
   const squares = []
 
+
   let snake = [3,2,1,0]
   let square = []
   let chosenSquare = []
   let scoreCount = 0
-  let snakeSpeed = 300
+  let snakeSpeed = 350
   let direction = 'right'
   let gameInPlay = true
   let timer
+
 
   //*************************************************************
 
@@ -117,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //************************************************************* = kill the snake. reset the snake when it hits itself or the wall.
 
-  moveSnake()
+  // moveSnake()
 
   // ********************** = function in order to make it move a certain way and what it should add or take off
   function moveRight(){
@@ -169,15 +171,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   resetButton.addEventListener('click', () => {
     snake.forEach(index => squares[index].classList.remove('snake'))
+    clearTimeout(timer)
     snake = [3,2,1,0]
     score.innerText = 0
     grid.classList.add('grid')
     direction = 'right'
     snakeSpeed -= 0
-    clearTimeOut(timer)
+    body.classList.remove('endOfGame')
     drawSnake()
     moveSnake()
-    body.classList.remove('endOfGame')
+
 
 
   })

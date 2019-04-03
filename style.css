@@ -20,7 +20,8 @@ body {
   background-image: url(pictures/harry1.jpg);
   background-size: 1400px;
   background-repeat: no-repeat;
-
+  overflow: hidden;
+  width: 100%;
 }
 
 .container {
