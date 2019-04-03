@@ -3,10 +3,10 @@
 }
 
 header {
-  background-image: url(pictures/giphy.gif);
+  background-image: url(pictures/ezgif-3-fbec28bcdf1c.gif);
   background-position: center;
   align-items: center;
-  background-repeat: repeat;
+  background-repeat: ;
   margin: 0;
   height: 80px;
 }
@@ -86,7 +86,6 @@ main {
 
 .endOfGame{
   background-image: url('pictures/Untitled_Artwork.jpg');
-  border: 5px solid black;
   display: flex;
   margin: 0;
   height: 100vh;
@@ -122,12 +121,11 @@ nav .resetButton {
   text-transform: uppercase;
 }
 
-.container2 > .startGame {
-    font-size: 20px;
-    color: dodgerblue;
+.container2 > .hidden {
+  display: none;
 }
 
-.container2 > .howToPlay {
+.container2 > .show.visible {
   font-size: 20px;
   color: dodgerblue;
 }

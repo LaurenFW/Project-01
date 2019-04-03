@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const resetButton = document.querySelector('.resetButton')
   const width = 18
   const squares = []
+  const addHideButtons = document.getElementById('.container2 > .hidden')
+
+
 
 
   let snake = [3,2,1,0]
@@ -72,6 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
     gameInPlay = false
     grid.classList.remove('grid')
     main.classList.add('endOfGame')
+    main.classList.remove('.container2.startGame')
+    addHideButtons.classList.add('.container2 > .hidden')
     moveSnake()
     eraseSnake()
 
@@ -188,6 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     direction = 'right'
     snakeSpeed -= 0
     main.classList.remove('endOfGame')
+    addHideButtons.classList.remove('.container2 > .hidden')
     drawSnake()
     moveSnake()
 
