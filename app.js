@@ -25,6 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //*************************************************************
 
+function startGame {
+  gameInPlay = true
+  // grid.classList.remove('grid')
+  main.classList.add('endOfGame')
+}
+
 
 
   //************************************** = for let statement pushing my square into my grid
@@ -56,18 +62,19 @@ document.addEventListener('DOMContentLoaded', () => {
       squares[index].classList.remove('snake')) // deleting a square from the snake
   }
 
-  function food(){
-    const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
-    let randomIndex = Math.floor(Math.random()*squares.length)
-    while(squares[randomIndex].classList.contains('snake')) {
-      randomIndex = Math.floor(Math.random()* squares.length)
-    }
-    chosenSquare.classList.add('food')
-    if(chosenSquare.classList.contains('snake')){
-      // food()
-    }
-  }
 
+  function food(){
+    // const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
+    let randomIndex = Math.floor(Math.random() * squares.length)
+    while(squares[randomIndex].classList.contains('snake')) {
+      randomIndex = Math.floor(Math.random() * squares.length)
+    }
+    squares[randomIndex].classList.add('food')
+    // chosenSquare.classList.add('fuel')
+    // if(chosenSquare.classList.contains('snake')){
+    // fuel()
+
+  }
 
 
 
@@ -75,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
     gameInPlay = false
     grid.classList.remove('grid')
     main.classList.add('endOfGame')
-    main.classList.remove('.container2.startGame')
-    addHideButtons.classList.add('.container2 > .hidden')
+    // main.classList.remove('.container2.startGame')
+    // addHideButtons.classList.add('.container2 > .hidden')
     moveSnake()
     eraseSnake()
 
