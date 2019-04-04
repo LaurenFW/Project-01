@@ -8,10 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const score = document.querySelector('.score')
   const resetButton = document.querySelector('.resetButton')
   const playButton = document.querySelector('.playButton')
+  const mainScreen = document.querySelector('.mainScreen')
   const mySound = document.querySelector('audio')
+  const nav = document.querySelector('nav')
   const width = 18
   const squares = []
-
+  // const hidden = document.getElementById('playButton').style.display = 'none'
   let snake = [3,2,1,0]
   let square = []
   let scoreCount = 0
@@ -56,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     grid.classList.remove('grid')
     main.classList.add('startScreen')
     gameInPlay = false
+    mainScreen.innerText = ('')
   }
 
   startScreen()
@@ -70,12 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
       clearTimeout(timer)
       snake = [3,2,1,0]
       score.innerText = 0
-      main.classList.remove('.button')
       grid.classList.add('grid')
       direction = 'right'
       snakeSpeed -= 0
       drawSnake()
       moveSnake()
+      playButton.innerText = ('')
 
     })
 
@@ -103,8 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     gameInPlay = false
     grid.classList.remove('grid')
     main.classList.add('endOfGame')
-    moveSnake()
-    eraseSnake()
+
 
   }
 
@@ -225,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
     snakeSpeed -= 0
     main.classList.remove('endOfGame')
     main.classList.remove('startScreen')
+    playButton.innerText = ('')
     drawSnake()
     moveSnake()
 

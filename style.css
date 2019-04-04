@@ -18,7 +18,7 @@ h1 {
 body {
     overflow: hidden;
     height: 100vh;
-    background-image: url('pictures/black-background.jpg');
+    background: black;
     background-size: 110%;
     background-repeat: no-repeat;
     width: 100%;
@@ -56,7 +56,6 @@ main {
   /* background-color: dodgerblue; */
   display: flex;
   flex-wrap: wrap;
-  margin-top: 50px;
   justify-content: center;
 
 }
@@ -70,7 +69,6 @@ main {
 }
 
 .food {
-  /* need to fix my snitch size!!! */
   background-image: url(pictures/dementor.jpg);
   background-size: contain;
   background-position: center;
@@ -84,16 +82,17 @@ main {
   background-image: url('pictures/Untitled_Artwork.jpg');
   display: flex;
   margin: 0;
-  height: 100vh;
   background-size: 100%;
   background-repeat: no-repeat;
   width: 100%;
+
 }
 
 .score {
   color: gray;
-  display: inline;
-  padding-right: 100px;
+  pointer-events: none;
+
+
 }
 
 nav {
@@ -103,20 +102,26 @@ nav {
 
 
 .startScreen {
-  background-image: url(pictures/badge.gif);
+  background-image: url(pictures/snake-gif.gif);
   background-size: contain;
   background-position: center;
   align-items: center;
   background-repeat: no-repeat;
-  max-height: 600px;
+  max-height: 800px;
   max-width: 600px;
   margin: auto;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
 }
 
-.startGame {
+.playButton {
+  font-size: 100px;
+  font-family: 'Montez', cursive;
+}
 
+.startGame {
+/* button */
 }
 
 .lowerPage > {
@@ -125,4 +130,13 @@ nav {
   width: 20px;
   height: 20px;
   justify-content: center;
+}
+
+.nav {
+
+   /* flex-direction: row; */
+   display: flex;
+  justify-content: space-between;
+  padding: 10px;
+
 }
