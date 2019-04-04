@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.grid')
   const score = document.querySelector('.score')
   const resetButton = document.querySelector('.resetButton')
+  const playButton = document.querySelector('.playButton')
+  // const audio = document.querySelector('audio')
   const width = 18
   const squares = []
-  const addHideButtons = document.getElementById('.container2 > .hidden')
-
 
 
 
@@ -25,13 +25,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //*************************************************************
 
-function startGame {
-  gameInPlay = true
-  // grid.classList.remove('grid')
-  main.classList.add('endOfGame')
-}
+  function startScreen() {
+    gameInPlay = false
+    grid.classList.add('grid')
+    main.classList.add('startScreen')
+  }
 
 
+
+  startScreen()
+  //
+  // function startGame() {
+  //   gameInPlay = false
+  //   playButton.addEventListener('click', () => {
+  //     snake = [3,2,1,0]
+  //     score.innerText = 0
+  //     grid.classList.add('grid')
+  //     direction = 'right'
+  //     snakeSpeed -= 0
+  //     main.classList.remove('endOfGame')
+  //     drawSnake()
+  //     moveSnake()
+  //   })
+  // }
+  //
+  // startGame()
 
   //************************************** = for let statement pushing my square into my grid
   for(let i = 0; i < width * width; i++) {
@@ -80,10 +98,8 @@ function startGame {
 
   function gameOver() {
     gameInPlay = false
-    grid.classList.remove('grid')
-    main.classList.add('endOfGame')
-    // main.classList.remove('.container2.startGame')
-    // addHideButtons.classList.add('.container2 > .hidden')
+    // grid.classList.remove('grid')
+    // main.classList.add('endOfGame')
     moveSnake()
     eraseSnake()
 
@@ -200,7 +216,6 @@ function startGame {
     direction = 'right'
     snakeSpeed -= 0
     main.classList.remove('endOfGame')
-    addHideButtons.classList.remove('.container2 > .hidden')
     drawSnake()
     moveSnake()
 

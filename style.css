@@ -18,53 +18,53 @@ h1 {
 body {
     overflow: hidden;
     height: 100vh;
+    background-image: url('pictures/black-background.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 
 main {
   display: flex;
   margin: 0;
   height: 100vh;
-  background-image: url(pictures/harry1.jpg);
+  /* background-image: url(pictures/harry1.jpg); */
   background-size: 100%;
   background-repeat: no-repeat;
   width: 100%;;
 }
 
 .grid {
-  background-color: rgba(39, 119, 247,.15);
+  background-color: rgba(39, 119, 247,.05);
   display: flex;
   flex-wrap: wrap;
   height: 100vh;
   justify-content: center;
   max-height: 600px;
   max-width: 600px;
+  box-shadow: 0 0 15px 2px #0088AE inset;
 }
 
 .grid div {
   flex-grow: 1;
   height: 33.33px;
   width: 33.33px;
-  border: 1px solid black;
 }
 
-.container1 {
+.container {
+  /* background-color: dodgerblue; */
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  margin: auto;
+  margin-top: 50px;
   justify-content: center;
-}
 
-.container2 {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin: auto;
-  justify-content: center;
 }
 
 .snake {
-  background-color: red;
+  background-image: url(pictures/snake2.gif);
+  background-size: contain;
+  background-position: center;
+  align-items: center;
+  background-repeat: no-repeat;
 }
 
 .food {
@@ -96,32 +96,10 @@ nav {
     text-align: center;
   }
 
-.container2 > div {
 
-  display: none;
-  background-color: white;
-  font-size: 30px;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-nav .resetButton {
-  font-size: 20px;
-  color: red;
-  text-transform: uppercase;
-}
-
-.container2 > .hidden {
-  display: none;
-}
-
-.container2 > .show.visible {
-  font-size: 20px;
-  color: dodgerblue;
+.startScreen {
 }
 
 .startGame {
-  background: url(pictures/slytherin.gif)
+/* button */
 }
