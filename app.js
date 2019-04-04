@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const playButton = document.querySelector('.playButton')
   const mainScreen = document.querySelector('.mainScreen')
   const mySound = document.querySelector('audio')
-  const nav = document.querySelector('nav')
   const width = 18
   const squares = []
   // const hidden = document.getElementById('playButton').style.display = 'none'

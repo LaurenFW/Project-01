@@ -117,7 +117,9 @@ nav {
 
 .playButton {
   font-size: 100px;
+  padding: 10px;
   font-family: 'Montez', cursive;
+  border: 2px solid blue;
 }
 
 .startGame {
@@ -139,4 +141,11 @@ nav {
   justify-content: space-between;
   padding: 10px;
 
+}
+
+.resetButton {
+  padding: 10px;
+  font-size: 30px;
+  font-family: 'Montez', cursive;
+  border: 2px solid blue;
 }
