@@ -10,8 +10,8 @@ header {
 h1 {
   color: white;
   font-family: 'Montez', cursive;
-  font-size: 60px;
-  letter-spacing: 5px;
+  font-size: 100px;
+  letter-spacing: 20px;
   text-align: center;
 }
 
@@ -19,15 +19,16 @@ body {
     overflow: hidden;
     height: 100vh;
     background-image: url('pictures/black-background.jpg');
+    background-size: 110%;
     background-repeat: no-repeat;
-    background-size: contain;
+    width: 100%;
   }
 
 main {
   display: flex;
   margin: 0;
   height: 100vh;
-  /* background-image: url(pictures/harry1.jpg); */
+  background-image: url(pictures/harry1.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   width: 100%;;
@@ -42,6 +43,7 @@ main {
   max-height: 600px;
   max-width: 600px;
   box-shadow: 0 0 15px 2px #0088AE inset;
+  flex-wrap: wrap;
 }
 
 .grid div {
@@ -69,11 +71,13 @@ main {
 
 .food {
   /* need to fix my snitch size!!! */
-  background-image: url(pictures/golden-snitch.jpg);
+  background-image: url(pictures/dementor.jpg);
   background-size: contain;
   background-position: center;
   align-items: center;
   background-repeat: no-repeat;
+  box-shadow: 0 0 2px 2px #0088AE inset;
+
 }
 
 .endOfGame{
@@ -87,19 +91,38 @@ main {
 }
 
 .score {
-  color: red;
+  color: gray;
   display: inline;
-  padding-right: 40px;
+  padding-right: 100px;
 }
 
 nav {
     text-align: center;
+    font-size: 30px;
   }
 
 
 .startScreen {
+  background-image: url(pictures/badge.gif);
+  background-size: contain;
+  background-position: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  max-height: 600px;
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .startGame {
-/* button */
+
+}
+
+.lowerPage > {
+  display: flex;
+  flex-wrap: wrap;
+  width: 20px;
+  height: 20px;
+  justify-content: center;
 }

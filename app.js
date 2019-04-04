@@ -8,11 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const score = document.querySelector('.score')
   const resetButton = document.querySelector('.resetButton')
   const playButton = document.querySelector('.playButton')
-  // const audio = document.querySelector('audio')
+  const mySound = document.querySelector('audio')
   const width = 18
   const squares = []
-
-
 
   let snake = [3,2,1,0]
   let square = []
@@ -24,32 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   //*************************************************************
-
-  function startScreen() {
-    gameInPlay = false
-    grid.classList.add('grid')
-    main.classList.add('startScreen')
-  }
-
-
-
-  startScreen()
-  //
-  // function startGame() {
-  //   gameInPlay = false
-  //   playButton.addEventListener('click', () => {
-  //     snake = [3,2,1,0]
-  //     score.innerText = 0
-  //     grid.classList.add('grid')
-  //     direction = 'right'
-  //     snakeSpeed -= 0
-  //     main.classList.remove('endOfGame')
-  //     drawSnake()
-  //     moveSnake()
-  //   })
-  // }
-  //
-  // startGame()
 
   //************************************** = for let statement pushing my square into my grid
   for(let i = 0; i < width * width; i++) {
@@ -80,6 +52,37 @@ document.addEventListener('DOMContentLoaded', () => {
       squares[index].classList.remove('snake')) // deleting a square from the snake
   }
 
+  function startScreen() {
+    grid.classList.remove('grid')
+    main.classList.add('startScreen')
+    gameInPlay = false
+  }
+
+  startScreen()
+
+
+  function startGame() {
+    gameInPlay = true
+    playButton.addEventListener('click', () => {
+      main.classList.remove('startScreen')
+      main.classList.remove('endOfGame')
+      snake.forEach(index => squares[index].classList.remove('snake'))
+      clearTimeout(timer)
+      snake = [3,2,1,0]
+      score.innerText = 0
+      main.classList.remove('.button')
+      grid.classList.add('grid')
+      direction = 'right'
+      snakeSpeed -= 0
+      drawSnake()
+      moveSnake()
+
+    })
+
+  }
+
+  startGame()
+
 
   function food(){
     // const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
@@ -98,11 +101,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function gameOver() {
     gameInPlay = false
-    // grid.classList.remove('grid')
-    // main.classList.add('endOfGame')
+    grid.classList.remove('grid')
+    main.classList.add('endOfGame')
     moveSnake()
     eraseSnake()
 
+  }
+
+  function gameSound() {
+    mySound.src = 'audio/01 Prologue.mp3'
+    mySound.play()
   }
 
 
@@ -216,11 +224,15 @@ document.addEventListener('DOMContentLoaded', () => {
     direction = 'right'
     snakeSpeed -= 0
     main.classList.remove('endOfGame')
+    main.classList.remove('startScreen')
     drawSnake()
     moveSnake()
 
 
 
   })
+
+  gameSound()
+  console.log(gameSound)
   food()
 })
