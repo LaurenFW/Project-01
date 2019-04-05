@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     score.innerText = 0
     grid.classList.add('grid')
     direction = 'right'
-    snakeSpeed -= 0
+    snakeSpeed = 350
     main.classList.remove('endOfGame')
     main.classList.remove('startScreen')
     playButton.innerText = ('')
