@@ -95,12 +95,6 @@ main {
 
 }
 
-nav {
-    text-align: center;
-    font-size: 30px;
-  }
-
-
 .startScreen {
   background-image: url(pictures/snake-gif.gif);
   background-size: contain;
@@ -135,15 +129,14 @@ nav {
 
 .nav {
 
-   /* flex-direction: row; */
-   display: flex;
+  display: flex;
   justify-content: space-between;
-  padding: 10px;
+  font-size: 20px;
 
 }
 
 .resetButton {
-  padding: 10px;
+  padding-right: 10px;
   font-size: 30px;
   font-family: 'Montez', cursive;
 }
