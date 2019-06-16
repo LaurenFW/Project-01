@@ -1,18 +1,14 @@
 # Project 1: JavaScript Game
 
 ### Timeframe
-7 days
+8 days
 
 ## Technologies used
 
 * JavaScript (ES6)
 * HTML5
 * CSS
-* git
 
-* add other technologies here... (HTML5 Audio, CSS animation, localStorage etc)
-
-* HTML5 Audio
 
 ## Installation
 
@@ -23,7 +19,7 @@
 
 Screen shot
 
-![SnakeGame]<img width="1440" alt="Screenshot 2019-04-05 at 09 47 20" src="https://user-images.githubusercontent.com/46609723/55616027-cee82580-5788-11e9-84a8-eb1f95687d7c.png">
+<img width="1440" alt="Screenshot 2019-04-05 at 09 47 20" src="https://user-images.githubusercontent.com/46609723/55616027-cee82580-5788-11e9-84a8-eb1f95687d7c.png">
 
 ### Introduction
 
@@ -36,7 +32,7 @@ _To navigate your snake around the board you have to use the arrow keys._
 
 ### Game Instructions
 1. To start the game. Click on Start Game.
-![SnakeGame]<img width="1440" alt="Screenshot 2019-04-05 at 09 47 20" src="https://user-images.githubusercontent.com/46609723/55616027-cee82580-5788-11e9-84a8-eb1f95687d7c.png">_
+<img width="1440" alt="Screenshot 2019-04-05 at 09 47 20" src="https://user-images.githubusercontent.com/46609723/55616027-cee82580-5788-11e9-84a8-eb1f95687d7c.png">_
 The game will start and the snake will start moving around the board, in order to stay alive you will have to catch the dementor which is the food and use the arrow keys to move the snake._
 <img width="1440" alt="Screenshot 2019-04-05 at 10 05 30" src="https://user-images.githubusercontent.com/46609723/55617096-474fe600-578b-11e9-8af0-27b9b9bb277d.png">
 The game will start and the snake will start moving around the board, in order to stay alive you will have to catch the dementor which is the food and use the arrow keys to move the snake and try to get as long as you can.
