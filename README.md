@@ -25,7 +25,7 @@ The landing page:
 
 Creating the well-known snake game with a twist of Harry Potter.
 
-View my hosted game here [Click here](laurenfwinter.github.io/Project-01/)
+View my hosted game [Click here](https://laurenfwinter.github.io/Project-01/)
 
 ### Controls
 To navigate the snake, you have to use the arrow keys on a computer.
