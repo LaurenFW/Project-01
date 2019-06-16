@@ -26,7 +26,7 @@ Screen shot
 
 This game is where a snake grows in length by eating food around the board, the player has to stay alive as long as possible by not bumping in the wall or itself as it gets longer.
 
-View my hosted game here -> laurenfwinter.github.io/Project-01/
+View my hosted game here -> [Click here](laurenfwinter.github.io/Project-01/)
 
 ### Controls
 _To navigate your snake around the board you have to use the arrow keys._
