@@ -59,8 +59,6 @@ One of the main issues I was facing at the start is that the food was being prod
 
 function food(){
 
-// const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
-
 let randomIndex = Math.floor(Math.random() * squares.length)
 
 while(squares[randomIndex].classList.contains('snake')) {
@@ -70,12 +68,6 @@ randomIndex = Math.floor(Math.random() * squares.length)
 }
 
 squares[randomIndex].classList.add('food')
-
-// chosenSquare.classList.add('fuel')
-
-// if(chosenSquare.classList.contains('snake')){
-
-// fuel()
 
 }
 
