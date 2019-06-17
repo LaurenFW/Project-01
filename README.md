@@ -44,4 +44,73 @@ See how long you can survive for
 <img width="1440" alt="Screenshot 2019-04-05 at 10 05 47" src="https://user-images.githubusercontent.com/46609723/55617413-eb399180-578b-11e9-9f1b-58221fa75c55.png">
 
 
-Under construction
+
+ 
+
+## Process  
+
+After getting the project brief, I starting by creating a Trello board to plan each step. 
+
+To get the basic structure of my grid, I used a for loop to generate 18 x 18 individual divs.
+
+One of the main issues I was facing at the start is that the food was being produced in the snake’s body. This meant that I have to do a function to produce another random div that the snake was not in : 
+
+```javascript
+
+function food(){
+
+// const chosenSquare = squares[Math.floor(Math.random() * squares.length)]
+
+let randomIndex = Math.floor(Math.random() * squares.length)
+
+while(squares[randomIndex].classList.contains('snake')) {
+
+randomIndex = Math.floor(Math.random() * squares.length)
+
+}
+
+squares[randomIndex].classList.add('food')
+
+// chosenSquare.classList.add('fuel')
+
+// if(chosenSquare.classList.contains('snake')){
+
+// fuel()
+
+}
+
+```
+
+I also managed to get my game over background popping up when the snake had died. For this I had to remove the grid and add the background image when the gameInPlay was false.
+
+```javascript
+
+function gameOver() {
+
+gameInPlay = false
+
+grid.classList.remove('grid')
+
+main.classList.add('endOfGame')
+
+}
+```
+
+I enjoyed making Snake my own game by implementing my style designs in there, as I was following a snake theme with Harry Potter.
+
+I used programs like google images to get my images and gifs and edited them with ezgif.com.
+
+### Challenges
+
+The most challenging part was to make sure the game cleared once the reset button was clicked.
+
+This produced a lot of issues from the score count not clearing to the snake starting too fast. I overcame this by adding an event listener which reset everything.
+
+### Wins
+
+Having a game that works and looks good was a big win. I enjoyed doing this solo project and learnt a lot through functions, switch statements and event listeners
+
+## Future features
+
+* Responsive design
+* Leaderboard
